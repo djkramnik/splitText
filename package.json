@@ -1,7 +1,7 @@
 {
-  "name": "split-text",
+  "name": "@djkramnik/split-text",
   "version": "0.1.1",
-  "description": "",
+  "description": "Based on the GSAP SplitText animation library, which as of this writing requires a membership.  What it does seems simple enough, so why not make a free and open source version with a similar API?  Currently this only supports splitting lines but will be expanded to include split by word and by character.",
   "main": "lib/index.js",
   "scripts": {
     "prepare": "tsc",
@@ -14,5 +14,19 @@
   "devDependencies": {
     "typescript": "^3.7.5"
   },
-  "files": ["lib/**/*"]
+  "files": [
+    "lib/**/*"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djkramnik/splitText.git"
+  },
+  "bugs": {
+    "url": "https://github.com/djkramnik/splitText/issues"
+  },
+  "homepage": "https://github.com/djkramnik/splitText#readme"
 }
