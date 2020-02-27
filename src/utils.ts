@@ -1,8 +1,10 @@
 type LinesMapType = {
-  [offset: string]: Array<string>
+  [offset: string]: Array<string>;
 };
 
-export const tokenizeEl: (el: HTMLElement) => DocumentFragment = (el: HTMLElement) => {
+export const tokenizeEl: (el: HTMLElement) => DocumentFragment = (
+  el: HTMLElement
+) => {
   const fragment = document.createDocumentFragment();
   const text = el.textContent;
 
@@ -18,8 +20,8 @@ export const tokenizeEl: (el: HTMLElement) => DocumentFragment = (el: HTMLElemen
 };
 
 export const getLines = (tokenizedEl: HTMLElement) =>
-  Array.from(tokenizedEl.children)
-    .reduce((linesMap: LinesMapType, token: Element) => {
+  Array.from(tokenizedEl.children).reduce(
+    (linesMap: LinesMapType, token: Element) => {
       if (token instanceof HTMLElement) {
         return {
           ...linesMap,
@@ -29,7 +31,9 @@ export const getLines = (tokenizedEl: HTMLElement) =>
         };
       }
       return linesMap;
-    }, {});
+    },
+    {}
+  );
 
 export const getLineElements = (linesMap: LinesMapType) => {
   const fragment = document.createDocumentFragment();
@@ -44,4 +48,4 @@ export const getLineElements = (linesMap: LinesMapType) => {
       fragment.appendChild(div);
     });
   return fragment;
-}
+};

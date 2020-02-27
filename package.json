@@ -6,7 +6,8 @@
   "scripts": {
     "prepare": "tsc",
     "build": "tsc",
-    "test": "jest --config jestconfig.json"
+    "test": "jest --config jestconfig.json",
+    "format-all": "prettier --write \"**/*.ts\""
   },
   "keywords": [],
   "author": "",

@@ -1,4 +1,4 @@
-import {tokenizeEl, getLineElements, getLines} from './utils';
+import { tokenizeEl, getLineElements, getLines } from './utils';
 
 const waitForBrowser = async () => {
   return new Promise(resolve => window.setTimeout(resolve, 0));

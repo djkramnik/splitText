@@ -1,7 +1,9 @@
-import {JSDOM} from 'jsdom';
-import {tokenizeEl, getLineElements} from '../utils';
+import { JSDOM } from 'jsdom';
+import { tokenizeEl, getLineElements } from '../utils';
 
-const {window: {document}} = new JSDOM(`<div id="quote" style="width: 100px">\
+const {
+  window: { document },
+} = new JSDOM(`<div id="quote" style="width: 100px">\
 SplitText makes it easy to break apart \
 the text in an HTML element so that each character, word, and/or line is wrapped in its own div tag.\
 </div>`);
@@ -29,11 +31,10 @@ test('tokenizeEl creates one span per word as delimited by space', () => {
   }
 });
 
-test('getLineElements creates a div for every key in the object passed to it',
-  () => {
-    const fragment = getLineElements(linesMap);
-    expect(fragment.children.length).toBe(Object.keys(linesMap).length);
-  });
+test('getLineElements creates a div for every key in the object passed to it', () => {
+  const fragment = getLineElements(linesMap);
+  expect(fragment.children.length).toBe(Object.keys(linesMap).length);
+});
 
 test('getLineElements fragment children have expected style', () => {
   const fragment = getLineElements(linesMap);
@@ -42,7 +43,7 @@ test('getLineElements fragment children have expected style', () => {
     textAlign: 'start',
     position: 'relative',
   };
-  Array.from(fragment.children).forEach((el => {
+  Array.from(fragment.children).forEach(el => {
     if (el instanceof HTMLElement) {
       expect({
         display: el.style.display,
@@ -50,5 +51,5 @@ test('getLineElements fragment children have expected style', () => {
         position: el.style.position,
       }).toEqual(expectedStyle);
     }
-  }));
+  });
 });
