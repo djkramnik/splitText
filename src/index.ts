@@ -1,10 +1,10 @@
-import { tokenizeEl, getLineElements, getLines } from './utils';
+import { tokenizeEl, getLineElements, getLines, Options } from './utils';
 
 const waitForBrowser = async () => {
   return new Promise(resolve => window.setTimeout(resolve, 0));
 };
 
-export default async (el: HTMLElement) => {
+export default async (el: HTMLElement, options?: Options | undefined) => {
   // store the original text
   const originalText = el.innerText;
   if (!originalText) {
@@ -15,7 +15,8 @@ export default async (el: HTMLElement) => {
   el.innerText = '';
   el.appendChild(tokens);
   await waitForBrowser();
-  const lines = getLineElements(getLines(el));
+
+  const lines = getLineElements(getLines(el), options?.targetElement);
   el.innerHTML = '';
   el.appendChild(lines);
 
