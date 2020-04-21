@@ -3,7 +3,7 @@ type LinesMapType = {
 };
 
 export interface Options {
-  targetElement?: string;
+  markup?: string;
 }
 
 export const tokenizeEl: (el: HTMLElement) => DocumentFragment = (
@@ -41,15 +41,15 @@ export const getLines = (tokenizedEl: HTMLElement) =>
 
 export const getLineElements = (
   linesMap: LinesMapType,
-  targetElement: string | undefined
+  markup: string | undefined
 ) => {
   const fragment = document.createDocumentFragment();
   Object.keys(linesMap)
     .sort((a: string, b: string) => parseInt(a, 10) - parseInt(b, 10))
     .forEach((key: string) => {
-      if (targetElement) {
+      if (markup) {
         const doc = new DOMParser().parseFromString(
-          targetElement.replace('{slot}', linesMap[key].join(' ')),
+          markup.replace('{slot}', linesMap[key].join(' ')),
           'text/html'
         );
         fragment.appendChild(doc.body.children[0]);

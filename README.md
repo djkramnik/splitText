@@ -18,15 +18,21 @@ revert();
 
 ### Extended options
 
-You may also provide an object with options.
+You may also provide an object with options:
 
-#### elementTarget
+```javascript
+const options = {
+  markup: '<div class="custom-class">{slot}</div>',
+};
+```
+
+#### markup
 
 Allows for passing in custom markup in which the line will be wrapped, instead of a default `<div>`. The term `{slot}` in this string will be replaced with the line.
 
 ```javascript
 splitText(document.getElementById('copy'), {
-  targetElement:
+  markup:
     '<div class="stagger-line"><div class="stagger-line__wrap">{slot}</div></div>',
 });
 ```

@@ -16,7 +16,7 @@ export default async (el: HTMLElement, options?: Options | undefined) => {
   el.appendChild(tokens);
   await waitForBrowser();
 
-  const lines = getLineElements(getLines(el), options?.targetElement);
+  const lines = getLineElements(getLines(el), options?.markup);
   el.innerHTML = '';
   el.appendChild(lines);
 
