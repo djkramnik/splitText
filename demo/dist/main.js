@@ -231,15 +231,15 @@
     n.r(t);
     var r = n(0),
       o = n.n(r);
-    o()(document.querySelector('#quote')).then(e => {
-      const t = document.querySelector('button');
+    o()(document.querySelector('#quote-basic')).then(e => {
+      const t = document.querySelector('#quote-basic-btn');
       t.removeAttribute('disabled'), t.addEventListener('click', e);
     }),
       o()(document.querySelector('#quote-markup'), {
         markup:
           '<div class="stagger-line"><div class="stagger-line__inner">{slot}</div></div>',
       }).then(e => {
-        const t = document.querySelector('button');
+        const t = document.querySelector('#quote-markup-btn');
         t.removeAttribute('disabled'), t.addEventListener('click', e);
       });
   },
