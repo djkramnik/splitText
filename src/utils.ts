@@ -39,15 +39,12 @@ export const getLines = (tokenizedEl: HTMLElement) =>
     {}
   );
 
-export const getLineElements = (
-  linesMap: LinesMapType,
-  markup: string | undefined
-) => {
+export const getLineElements = (linesMap: LinesMapType, markup?: string) => {
   const fragment = document.createDocumentFragment();
   Object.keys(linesMap)
     .sort((a: string, b: string) => parseInt(a, 10) - parseInt(b, 10))
     .forEach((key: string) => {
-      if (markup) {
+      if (typeof markup === 'string') {
         const doc = new DOMParser().parseFromString(
           markup.replace('{slot}', linesMap[key].join(' ')),
           'text/html'

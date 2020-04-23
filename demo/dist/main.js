@@ -183,9 +183,9 @@
     var i = n(2);
     t.default = function(e, t) {
       return r(void 0, void 0, void 0, function() {
-        var n, u, c, a;
-        return o(this, function(l) {
-          switch (l.label) {
+        var n, u, c;
+        return o(this, function(a) {
+          switch (a.label) {
             case 0:
               return (n = e.innerText)
                 ? ((u = i.tokenizeEl(e)),
@@ -207,11 +207,8 @@
                 : [2];
             case 1:
               return (
-                l.sent(),
-                (c = i.getLineElements(
-                  i.getLines(e),
-                  null === (a = t) || void 0 === a ? void 0 : a.markup
-                )),
+                a.sent(),
+                (c = i.getLineElements(i.getLines(e), t ? t.markup : void 0)),
                 (e.innerHTML = ''),
                 e.appendChild(c),
                 [
@@ -292,7 +289,7 @@
               return parseInt(e, 10) - parseInt(t, 10);
             })
             .forEach(function(r) {
-              if (t) {
+              if ('string' == typeof t) {
                 var o = new DOMParser().parseFromString(
                   t.replace('{slot}', e[r].join(' ')),
                   'text/html'
