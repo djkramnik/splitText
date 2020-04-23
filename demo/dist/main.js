@@ -210,7 +210,7 @@
                 l.sent(),
                 (c = i.getLineElements(
                   i.getLines(e),
-                  null === (a = t) || void 0 === a ? void 0 : a.targetElement
+                  null === (a = t) || void 0 === a ? void 0 : a.markup
                 )),
                 (e.innerHTML = ''),
                 e.appendChild(c),
@@ -229,11 +229,19 @@
   function(e, t, n) {
     'use strict';
     n.r(t);
-    var r = n(0);
-    n.n(r)()(document.querySelector('#quote')).then(e => {
+    var r = n(0),
+      o = n.n(r);
+    o()(document.querySelector('#quote')).then(e => {
       const t = document.querySelector('button');
       t.removeAttribute('disabled'), t.addEventListener('click', e);
-    });
+    }),
+      o()(document.querySelector('#quote-markup'), {
+        markup:
+          '<div class="stagger-line"><div class="stagger-line__inner">{slot}</div></div>',
+      }).then(e => {
+        const t = document.querySelector('button');
+        t.removeAttribute('disabled'), t.addEventListener('click', e);
+      });
   },
   function(e, t, n) {
     'use strict';
